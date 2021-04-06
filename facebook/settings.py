@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,6 +38,7 @@ INSTALLED_APPS = [
     'app',
     'bootstrap4',
     'crispy_forms',
+    'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -83,6 +87,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'facebook.wsgi.application'
+
+cloudinary.config(
+    cloud_name='santan',
+    api_key='711176936419922',
+    api_secret='Ehvw4CDtcQlNmPwDpvez1JplZUQ'
+    # cloud_name=os.environ.get('CLOUD_NAME'),
+    # api_key=os.environ.get('API_KEY'),
+    # api_secret=os.environ.get('API_SECRET'),
+    # secure=True
+)
 
 
 # Database

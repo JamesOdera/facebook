@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.utils import timezone
 import math
+from cloudinary.models import CloudinaryField
 
 
 class Post(models.Model):
@@ -96,7 +97,7 @@ def pre_save_slug(sender, **kwargs):
 
 class Images(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    image = models.ImageField(blank=True, null=True)
+    image = CloudinaryField('image')
 
     class Meta:
         verbose_name_plural = "Images"
